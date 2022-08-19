@@ -14,7 +14,6 @@ import java.util.Scanner;
 // 출력
 /* 20
  */
-
 class Test01 {
     public static final int MAX_N = 10;
     public static final int MAX_R = 200;
