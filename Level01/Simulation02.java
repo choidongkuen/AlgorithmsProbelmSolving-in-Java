@@ -1,5 +1,3 @@
-package Level01;
-import java.util.Scanner;
 // 문제 : 왔다 갔던 구역
 // 날짜 : 2022/08/17
 // 첫 번째 줄에 n이 주어진다.
