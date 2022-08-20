@@ -1,4 +1,4 @@
-package Level01;
+package Simulation;
 import java.util.Scanner;
 // 왔다 갔던 구역
 // 첫 번째 줄에 n이 주어진다.
