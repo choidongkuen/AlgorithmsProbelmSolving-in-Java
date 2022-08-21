@@ -1,5 +1,5 @@
 # Algorithms-in-Java
-# **자바**을 이용한 알고리즘 공부
+# **자바**를 이용한 알고리즘 공부
 ## Algorithms Studying using **_Java_**
 
 
