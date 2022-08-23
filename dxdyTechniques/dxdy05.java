@@ -1,6 +1,7 @@
+package dxdyTechniques;
 import java.util.*;
 
-public class Simulation06 {
+public class dxdy05 {
 
     // 북,동,남,서 순으로 dx, dy를 정의한다.
     public static int[] dx = {0,1,0,-1};

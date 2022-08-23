@@ -1,7 +1,5 @@
+
 package Simulation;
-
-
-
 import java.util.Scanner;
 // n이 주어지고 n 줄에 걸쳐 각 줄마다 x1,y1,x2,y2 가 주어진다.
 // 입력
@@ -14,7 +12,7 @@ import java.util.Scanner;
 // 출력
 /* 20
  */
-class Test01 {
+class Simulation01{
     public static final int MAX_N = 10;
     public static final int MAX_R = 200;
     public static final int OFFSET = 100;

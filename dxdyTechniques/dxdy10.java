@@ -25,10 +25,10 @@
 // 출력 예시
 // 10
 
-package Simulation;
+package dxdyTechniques;
 import java.util.*;
 
-public class Simulation11 {
+public class dxdy10 {
     public static int x = 0, y = 0; // 초기 위치
     public static final int ASCII = 128; // 아스키 문자
     public static final int MAX_N = 100; // 최대 N의 갯수

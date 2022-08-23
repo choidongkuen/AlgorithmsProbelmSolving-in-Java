@@ -16,10 +16,10 @@
 // ===============================================================
 // 출력 예제
 // 13
-package Simulation;
+package dxdyTechniques;
 import java.util.*;
 
-public class Simulation12 {
+public class dxdy11 {
     public static int x = 0, y = 0; // 초기 위치
     public static int dirNum = 0; // 초기 북쪽
     public static int[] dx = {-1,0,1,0};

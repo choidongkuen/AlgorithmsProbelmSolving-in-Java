@@ -14,10 +14,10 @@
 // ===============================================================
 // 출력 예시
 // -1 0
-package Simulation;
+package dxdyTechniques;
 import java.util.*;
 
-public class Simulation08 {
+public class dxdy07 {
     public static int[] dx = {0,1,0,-1};
     public static int[] dy = {1,0,-1,0}; // 북 - 동 - 남 - 서
     public static int x = 0,y = 0;

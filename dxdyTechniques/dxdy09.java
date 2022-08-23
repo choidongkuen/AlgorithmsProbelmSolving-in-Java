@@ -19,10 +19,10 @@
 // 11 16 15 6
 // 10 9 8 7
 
-package Simulation;
+package dxdyTechniques;
 import java.util.*;
 
-public class Simulation10{
+public class dxdy09 {
     public static int[] dx = {-1,0,1,0};
     public static int[] dy = {0,1,0,-1};
     public static int[][] arr;

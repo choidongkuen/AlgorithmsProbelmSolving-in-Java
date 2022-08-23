@@ -22,11 +22,11 @@
 
 
 
-package Simulation;
+package dxdyTechniques;
 import java.util.Scanner;
 
 
-public class Simulation07 {
+public class dxdy06 {
 
     // 북,동,남,서 순으로 dx, dy를 정의한다.
     public static int[] dx = {0,1,0,-1};

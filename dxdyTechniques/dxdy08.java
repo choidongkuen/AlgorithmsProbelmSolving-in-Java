@@ -20,10 +20,10 @@
 // ===============================================================
 // 출력 예시
 // 4
-package Simulation;
+package dxdyTechniques;
 import java.util.*;
 // 격자에서의 x,y(x좌표,y좌표)와 행렬에서의 x,y(행,열)은 다르다.
-public class Simulation09 {
+public class dxdy08 {
     public static final int MAX = 100; // nXn의 최대
     public static int[][] arr = new int[MAX][MAX]; // 2차원 배열
     public static int n; // nxn
