@@ -22,7 +22,7 @@
 package dxdyTechniques;
 import java.util.*;
 
-public class dxdy09 {
+public class dxdy04 {
     public static int[] dx = {-1,0,1,0};
     public static int[] dy = {0,1,0,-1};
     public static int[][] arr;
