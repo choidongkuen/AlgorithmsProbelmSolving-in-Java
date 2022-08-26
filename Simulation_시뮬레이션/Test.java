@@ -1,6 +1,5 @@
-package Simulation;
+package Simulation_시뮬레이션;
 
-import java.util.*;
 public class Test {
     public static int a = 0;
     public static boolean f(){

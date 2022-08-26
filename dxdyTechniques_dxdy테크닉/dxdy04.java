@@ -19,7 +19,7 @@
 // 11 16 15 6
 // 10 9 8 7
 
-package dxdyTechniques;
+package dxdyTechniques_dxdy테크닉;
 import java.util.*;
 
 public class dxdy04 {

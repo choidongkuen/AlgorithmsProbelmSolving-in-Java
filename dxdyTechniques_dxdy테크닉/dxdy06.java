@@ -16,7 +16,7 @@
 // ===============================================================
 // 출력 예제
 // 13
-package dxdyTechniques;
+package dxdyTechniques_dxdy테크닉;
 import java.util.*;
 
 public class dxdy06 {

@@ -21,7 +21,7 @@
 // ===============================================================
 // 3
 
-package Simulation;
+package Simulation_시뮬레이션;
 import java.util.Scanner;
 
 public class Simulation03{

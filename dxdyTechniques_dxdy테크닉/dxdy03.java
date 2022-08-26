@@ -20,7 +20,7 @@
 // ===============================================================
 // 출력 예시
 // 4
-package dxdyTechniques;
+package dxdyTechniques_dxdy테크닉;
 import java.util.*;
 // 격자에서의 x,y(x좌표,y좌표)와 행렬에서의 x,y(행,열)은 다르다.
 public class dxdy03 {

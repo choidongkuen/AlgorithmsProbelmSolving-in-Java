@@ -1,4 +1,4 @@
-package Simulation;
+package Simulation_시뮬레이션;
 import java.util.Scanner;
 // 왔다 갔던 구역
 // 문제 : 왔다 갔던 구역
@@ -21,7 +21,7 @@ import java.util.Scanner;
 //출력예시
 //6
 //===============================================================
-import java.util.Scanner;
+
 
 public class Simulation02{
     public static final int OFFSET = 1000;

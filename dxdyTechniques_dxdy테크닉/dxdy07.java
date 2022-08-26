@@ -27,7 +27,7 @@
 // 1
 // 0
 
-package dxdyTechniques;
+package dxdyTechniques_dxdy테크닉;
 import java.util.*;
 
 public class dxdy07 {
