@@ -13,8 +13,9 @@ public class Dp04{
     public static void main(String[] args){
         dp[0] = 0;
         // 점화식 : dp[i] = min(dp[i - coins[j]]  if(i >= coins[j]), 0<=j<coins.length
+
         for (int i = 1; i <= total ; i++) {
-            dp[i] = Integer.MAX_VALUE;
+            dp[i] = Integer.MAX_VALUE; // 초기 dp[i]
             for (int j = 0; j < coins.length ; j++) {
                 if(i >= coins[j])
                     dp[i] = Math.min(dp[i],dp[i - coins[j]] + 1);
