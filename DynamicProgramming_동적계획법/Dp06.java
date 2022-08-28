@@ -49,6 +49,3 @@ public class Dp06 {
         }
     }
 }
-
-
-gi
