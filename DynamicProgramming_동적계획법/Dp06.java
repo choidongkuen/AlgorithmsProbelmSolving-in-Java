@@ -28,7 +28,7 @@ public class Dp06 {
 
         dp = new int[100][100]; // dp 배열 크기 설정
         dp[0][0] = 0;
-        
+
 
         for (int i = 1; i <= numbers; i++) {
             for (int j = 0; j <= k; j++) {
