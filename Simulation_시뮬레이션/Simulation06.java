@@ -24,20 +24,80 @@
 
 // 출력 예시 :
 // 0111
-
-
 package Simulation_시뮬레이션;
-
 
 import java.util.Arrays;
 import java.util.Scanner;
+class Shake implements Comparable<Shake>{
+    int time;
+    int person1;
+    int person2;
 
-public class Simulation06{
+    public Shake(int time,int person1,int person2){
+        this.time = time;
+        this.person1 = person1;
+        this.person2 = person2;
+    }
+
+    @Override
+    public int compareTo(Shake s){ // 시간 순으로 정렬
+        return this.time - s.time; // 오름차순 정렬
+    }
+}
+
+public class Simulation06 {
+    public static final int MAX_N = 100; // 최대 개발자 수
+    public static final int MAX_T = 250; // 최대 주어지는 정보 횟수
+    public static int[] infected = new int[MAX_N + 1]; // 감염 여부 기록용 배열 0 : 음성 , 1 : 양성
+    public static int[] shakeNums = new int[MAX_N + 1]; // 개발자들의 악수 횟수 기록용 배열
 
     public static void main(String[] args) {
+        // Your Program Goes Here
         Scanner sc = new Scanner(System.in);
-        String st = sc.nextLine();
-        int x = Integer.valueOf(st.split(" ")[0]);
-        System.out.println(x);
+        int n = sc.nextInt(); // 주어지는 개발자 수
+        int k = sc.nextInt(); // 전염시킬 수 있는 악수 횟수
+        int p = sc.nextInt(); // 처음 전염된 개발자 번호
+        int t = sc.nextInt(); // t개의 정보
+
+        infected[p] = 1; // 원시 감염자 양성 기록
+        Shake[] shake = new Shake[MAX_T]; // t개의 악수 정보를 담을 클래스 배열 선언(인덱스가 0부터)
+
+        for(int i = 0; i < t; i++){
+
+            int time = sc.nextInt(); // 악수 시간
+            int person1 = sc.nextInt();
+            int person2 = sc.nextInt(); // 악수한 두 개발자의 번호
+
+            shake[i] = new Shake(time,person1,person2); // 객체 생성
+
+        } // 클래스 배열 완성
+
+        Arrays.sort(shake,0,t); // 클래스 배열 시간 순 오름차순 정렬
+
+        for(int i = 0; i < t; i++){
+
+            int person1 = shake[i].person1;
+            int person2 = shake[i].person2;
+
+            if(infected[person1] == 1){
+                shakeNums[person1]++;
+            }
+            if(infected[person2] == 1){
+                shakeNums[person2]++;
+            }
+            // 악수 횟수 증가
+
+            if(infected[person1] == 1 && shakeNums[person1] <= k){
+                infected[person2] = 1; // 양성 기록
+            }
+            else if(infected[person2] == 1 && shakeNums[person2] <= k){
+                infected[person1] = 1; // 양성 기록
+
+            }
+        }
+
+        for(int i = 1; i <= n; i++){
+            System.out.print(infected[i]);
+        }
     }
 }
