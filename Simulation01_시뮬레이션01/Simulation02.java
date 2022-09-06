@@ -1,4 +1,4 @@
-package Simulation_시뮬레이션;
+package Simulation01_시뮬레이션01;
 import java.util.Scanner;
 // 왔다 갔던 구역
 // 문제 : 왔다 갔던 구역

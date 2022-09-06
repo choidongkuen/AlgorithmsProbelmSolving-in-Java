@@ -24,7 +24,7 @@
 
 // 출력 예시 :
 // 0111
-package Simulation_시뮬레이션;
+package Simulation01_시뮬레이션01;
 
 import java.util.Arrays;
 import java.util.Scanner;

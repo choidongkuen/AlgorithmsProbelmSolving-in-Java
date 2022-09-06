@@ -26,7 +26,7 @@
 // 출력 예시
 // 2
 
-package Simulation_시뮬레이션;
+package Simulation01_시뮬레이션01;
 import java.util.*;
 
 public class Simulation05 {

@@ -16,7 +16,7 @@
 //3 14 15 8
 //4 5 6 7
 
-package Simulation_시뮬레이션;
+package Simulation01_시뮬레이션01;
 
 import java.util.*;
 import java.io.*;

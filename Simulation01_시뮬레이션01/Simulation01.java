@@ -1,5 +1,5 @@
 
-package Simulation_시뮬레이션;
+package Simulation01_시뮬레이션01;
 import java.util.Scanner;
 // n이 주어지고 n 줄에 걸쳐 각 줄마다 x1,y1,x2,y2 가 주어진다.
 // 입력
