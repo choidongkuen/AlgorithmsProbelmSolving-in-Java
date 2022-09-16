@@ -9,8 +9,6 @@
 // 이동할 수 있는 조건 : 1. 뱀이 존재하지 않을 때(info) 2. 격자의 범위를 벗어나지 않을 때(checkRange) 3. 방문 한적이 없을 때(visited)
 
 package GraphSearch_그래프탐색;
-
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class GS03 {
