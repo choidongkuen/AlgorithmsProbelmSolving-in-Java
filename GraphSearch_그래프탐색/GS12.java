@@ -91,9 +91,9 @@ public class GS12 {
         for(int i = 0; i < n; i++){
             for(int j = 0; j < n; j++){
 
-                if(visited[i][j] && maxVal < arr[i][j]){
+                if(visited[i][j] && maxVal < arr[i][j]){ // 방문 한 적이 있으며(시작위치의 값보다 작은 값) , 최대값보다 크다면
                     maxVal = arr[i][j];
-                    x = i; y = j;
+                    x = i; y = j; // 값, 위치 업데이트
                 }
             }
         }
