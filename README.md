@@ -19,6 +19,8 @@
 
 -[Exhaustive Search 3] : **완전 탐색 3**<br>
 
+-[BackTracking] : **백트랙킹**<br>
+
 -[DFS] : **깊이 우선 탐색**<br>
 
 -[BFS] : **너비 우선 탐색**<br>
