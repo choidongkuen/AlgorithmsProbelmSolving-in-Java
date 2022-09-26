@@ -31,7 +31,7 @@
 
 <br>
 
-> Adbvanced Level
+> Advanced Level
 
 -[BackTracking] : **백트랙킹**<br>
 
