@@ -1,42 +1,78 @@
+// 날짜 : 2022/09/28
+// 문제 : k개 중에 1개를 n번 뽑기
+// 문제 설명 :
+
+// 1이상 K이하의 숫자를 하나 고르는 행위를 N번 반복하여 나올 수 있는 모든 서로 다른 순서쌍을 구해주는 프로그램을 작성해보세요.
+// 예를 들어 K이 3,N이 2인 경우 다음과 같이 9개의 조합이 가능합니다.
+// 1 1
+// 1 2
+// 1 3
+// 2 1
+// 2 2
+// 2 3
+// 3 1
+// 3 2
+// 3 3
+
+// 입력 형식 :
+// 첫째 줄에 K와 N이 공백을 사이에 두고 주어집니다.
+// 1≤K≤4
+// 1≤N≤8
+
+// 입력 예시01 :
+// 2 2
+
+// 출력 예시01 :
+// 1 1
+// 1 2
+// 2 1
+// 2 2
+
+// 입력 얘시02 :
+// 3 2
+
+// 출력 예시02 :
+// 1 1
+// 1 2
+// 1 3
+// 2 1
+// 2 2
+// 2 3
+// 3 1
+// 3 2
+// 3 3
+
 package BackTracking_백트랙킹;
 
+import java.util.ArrayList;
 import java.util.Scanner;
-
 public class BT01 {
-    public static final int MAX_N = 20; // n의 최대값
-    public static int[] seats = new int[MAX_N]; // n개의 좌석정보를 원소로 갖는 1차원 배열
-    public static int n; // 주어지는 n값
+    public static int n,k;
+    public static ArrayList<Integer> result = new ArrayList<>(); // 결과를 담을 배열리스트
 
-    public static void main(String[] args) {
-        // Your Program Goes Here
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-
-        char[] charArr = sc.next().toCharArray(); // 문자 배열로
-        for(int i = 0; i < n; i++)
-            seats[i] = charArr[i] - '0'; // 문자 배열 정보를 정수 배열 정보로 이동
-
-        int ans = 0; // 가장 가까운 두 사람 간의 거리의 최대값
-
-        for(int i = 0; i < n; i++){
-            if(seats[i] == 0){
-                seats[i] = 1; // 해당 좌석에 자리를 배치하겠다고 가정
-                int minDis = 20; // 가정했을 때, 가장 가까운 좌석의 간격
-
-                for(int j = 0; j < n; j++){
-                    if(seats[j] == 1){ // 해당 좌석에 자리가 있다면,
-                        for(int k = j + 1; k < n; k++){
-                            if(seats[k] == 1){ // 다음 자리가 있는 좌석까지의 거리를 구한다.
-                                minDis = Math.min(minDis, k - j);
-                            }
-                        }
-                    }
-                }
-                ans = Math.max(ans, minDis); // ans 업데이트
-                seats[i] = 1; // 다시 복구
-            }
+    public static void printArr(){
+        for(Integer element: result)
+            System.out.print(element+" ");
+        System.out.println();
+    } // 배열리스트 원소 출력해주는 메소드
+    public static void choose(int loc){ // 해당 location 자리에 1 ~ k의 숫자 배치
+        if(loc == n + 1){
+            printArr();
+            return;
         }
 
-        System.out.println(ans); // 출력
+        for (int i = 1; i <= k ; i++) {
+            result.add(i);
+            choose(loc + 1);
+            result.remove(result.size() - 1);
+        }
+    }
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        k = sc.nextInt();
+        n = sc.nextInt();
+
+        choose(1); // 재귀 메소드 시작
     }
 }
