@@ -18,31 +18,35 @@ package TwoPointers;
 import java.util.Scanner;
 
 public class Pointer08 {
-    public static int n;
-    public static void main(String[] args) {
+    public static int n = 7;
+    public static int[] countArr = new int[4]; // 각 원소의 갯수를 담을 countarray
 
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt(); // 원소의 개수
-        int[] arr = new int[n]; // 원소를 담을 1차원 배열
-        int[] countArr = new int[4]; // 각 원소의 갯수를 담을 countarray
+    public static int solution(int[] arr){
 
-        for (int i = 0; i < n ; i++) {
-            arr[i] = sc.nextInt();
-        } // 원소 입력
+        int p1 = 0;
+        int p2 = 0;
+        int ans = -1;
 
-        int j = -1;
-        int ans = -1; // 가장 큰 구간의 길이
-        for (int i = 0; i < n ; i++) {
+        while(p2 < n){
 
-            while(j + 1 < n && countArr[arr[j + 1]] < 2){
-                countArr[arr[j + 1]] ++;
-                j ++;
+            while(p2 < n && countArr[arr[p2]] < 2){
+                countArr[arr[p2]] ++; // 증가시켜주고,
+                p2 ++; // 다음 위치로 이동
             }
 
-            ans = Math.max(ans, j - i + 1);
-            countArr[arr[i]] --;
-        }
+            // p2에 존재하는 원소의 갯수가 2개 기록된 경우(해당 위치까지 포함하면 3개가 되는 경우)
 
-        System.out.println(ans);
+            ans = Math.max(ans, p2 - p1);
+
+            countArr[arr[p1]] --;
+            p1 ++;
+        }
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {2,1,2,2,1,3,1};
+        System.out.println(solution(arr)); // 5
     }
 }
+

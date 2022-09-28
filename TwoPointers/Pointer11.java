@@ -13,7 +13,7 @@ package TwoPointers;
 
 public class Pointer11 {
 
-    public static boolean isSubSequence(int[] A,int[] B) {
+    public static boolean isSubSequence(int[] A, int[] B) {
 
         if (A == null || B == null)
             return false;
@@ -24,27 +24,25 @@ public class Pointer11 {
         int p1 = 0; // 수열 A의 포인터
         int p2 = 0; // 수열 B의 포인터
 
-        while(true){
-            if(p1 == A.length){
-                if(p2 != B.length){
-                    return false;
-                }else{ // p1 == A.length && p2 == B.length
-                    return true;
-                }
-            }
+        while (true) {
 
-            if(p2 == B.length)
-                return true;
-            ////////////////////
-            if(A[p1] == B[p2]) {
+            while (p1 < A.length && A[p1] != B[p2]) {
                 p1++;
-                p2++;
-            }else{
-                p1++;
+            } // 원소가 동일할때까지 p1 증가
+
+            if (p1 == A.length) { // A 끝에 도달할 때
+                if (p2 == B.length)
+                    return true; // B 끝에 도달한 경우
+                return false; // B 끝에 도달하지 못한 경우
             }
+            if (p2 == B.length) {
+                return true;
+            } // A 끝에 도달하지 못했지만, B 끝에 도달한 경우
+
+            p1++;
+            p2++; // 두 포인트에 원소가 동일한 경우
         }
     }
-
     public static void main(String[] args) {
         int[] A = new int[]{5,1,5,3,1,4};
         int[] B = new int[]{5,1,4};
