@@ -10,7 +10,7 @@ public class BT03 {
     public static ArrayList<Integer> result = new ArrayList<>(); // 조합을 기록할 배열 리스트
 
 
-    public static boolean isHappy() {
+    public static boolean isHappy() { // 행복 수열 판단하는 메소드
 
         for (int i = 0; i < result.size(); i += result.get(i)) { // 간격 설정 !!
 
