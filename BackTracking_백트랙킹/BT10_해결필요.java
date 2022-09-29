@@ -26,7 +26,7 @@
 
 package BackTracking_백트랙킹;
 
-public class BT10 {
+public class BT10_해결필요 {
     public static final int MAX_N = 10; // 주어지는 숫자의 최대 갯수
     public static int MAX_NUMS = 4; // 1 ~ 4
     public static int n;
