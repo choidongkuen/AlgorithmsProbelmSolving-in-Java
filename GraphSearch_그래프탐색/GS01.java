@@ -26,8 +26,7 @@
 
 package GraphSearch_그래프탐색;
 
-import java.util.*;
-
+/* # 1차
 public class GS01 {
 
     public static final int MAX_NUM = 1000; // 정점의 최대 갯수
@@ -66,5 +65,208 @@ public class GS01 {
         DFS(rootVertex); // DFS 메소드 호출
 
         System.out.println(cnt); // 결과 출력
+    }
+}
+
+
+ */
+
+
+
+import java.util.*;
+// 2차(stack 으로 구현) # 인접행렬
+/*
+
+public class GS01{
+    public static int n,m;
+    public static int[][] adjacentMatrix;
+    public static int cnt = 0;
+    public static Stack<Integer> stack = new Stack<>();
+    public static void dfs(int vertex){
+        boolean[] visited = new boolean[n + 1];
+
+        visited[vertex] = true;
+        stack.push(vertex);
+
+        while(!stack.isEmpty()){
+            int currV = stack.pop();
+
+            for (int i = 1; i <= n ; i++) {
+                if(adjacentMatrix[currV][i] == 1 && !visited[i]){
+                    visited[i] = true;
+                    stack.push(i);
+                    cnt++;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+        adjacentMatrix = new int[n + 1][n + 1];
+
+        for (int i = 0; i < m ; i++) {
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+
+            adjacentMatrix[x][y] = 1;
+            adjacentMatrix[y][x] = 1;
+        }
+
+        dfs(1); // 1에서 시작
+        System.out.println(cnt);
+    }
+} */
+// 2차(stack)으로 구현 # 인접리스트
+/*
+public class GS01{
+    public static int n,m;
+    public static int cnt = 0;
+    public static ArrayList<Integer>[] graph; // 그래프 구현 방법
+    public static Stack<Integer> s = new Stack<>();
+
+    public static void dfs(int vertex){
+
+        boolean[] visited = new boolean[n + 1];
+        s.add(vertex);
+        visited[vertex] = true;
+        while(!s.isEmpty()){
+            int currV = s.pop();
+
+            for (int i = 0; i < graph[currV].size() ; i++) {
+                int nextV = graph[currV].get(i);
+                if(!visited[nextV]){
+                    visited[nextV] = true;
+                    s.add(nextV);
+                    cnt++;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+
+        graph = new ArrayList[n + 1];
+
+        for (int i = 1; i <= n ; i++) {
+            graph[i] = new ArrayList<>();
+        }
+
+        for (int i = 0; i < m ; i++) {
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+
+            graph[x].add(y);
+            graph[y].add(x);
+        }
+
+        dfs(1);
+        System.out.println(cnt);
+    }
+}
+*/
+
+// 2차 인접행렬로 구현(BFS)
+
+/*
+public class GS01{
+    public static int n,m;
+    public static int[][] adjacentMatrix;
+    public static Queue<Integer> q = new LinkedList<>();
+    public static int cnt = 0;
+
+    public static void bfs(int vertex){
+
+        boolean[] visited = new boolean[n + 1];
+        visited[vertex] = true;
+        q.add(vertex);
+
+        while(!q.isEmpty()){
+            int currV = q.poll();
+            for(int i = 1; i <= n; i ++){
+
+                if(!visited[i]){
+                    visited[i] = true;
+                    q.add(i);
+                    cnt++;
+                }
+            }
+        }
+    }
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+
+        adjacentMatrix = new int[n + 1][n + 1];
+
+        while(m -- > 0){
+
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+            adjacentMatrix[x][y] = 1;
+            adjacentMatrix[y][x] = 1;
+        }
+
+        bfs(1);
+        System.out.println(cnt);
+    }
+}
+*/
+// 2차 인접리스트로 구현 (BFS)
+public class GS01{
+
+    public static int n,m;
+    public static ArrayList<Integer>[] graph;
+    public static Queue<Integer> q = new LinkedList<>();
+    public static int cnt = 0;
+
+    public static void bfs(int vertex){
+        boolean[] visited = new boolean[n + 1];
+
+        visited[vertex] = true;
+        q.add(vertex);
+        while(!q.isEmpty()){
+            int currV = q.poll();
+
+            for (int i = 0; i < graph[currV].size() ; i++) {
+                int nextV = graph[currV].get(i);
+                if(!visited[nextV]){
+                    visited[nextV] = true;
+                    q.add(nextV);
+                    cnt ++;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+
+        graph = new ArrayList[n + 1];
+        for (int i = 1; i <= n ; i++) {
+            graph[i] = new ArrayList<>();
+        }
+
+        for (int i = 1; i <= m ; i++) {
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+
+            graph[x].add(y);
+            graph[y].add(x);
+        }
+
+        bfs(1);
+        System.out.println(cnt);
     }
 }

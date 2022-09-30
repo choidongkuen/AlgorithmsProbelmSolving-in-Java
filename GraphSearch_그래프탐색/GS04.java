@@ -38,7 +38,7 @@
 package GraphSearch_그래프탐색;
 
 import java.util.*;
-
+/*
 public class GS04 {
     public static final int MAX = 100; // 행,열의 최대값
     public static int[][] snakes = new int[MAX][MAX]; // 뱀의 정보가 담긴 2차원 배열(있으면 0, 없으면 1)
@@ -96,3 +96,56 @@ public class GS04 {
 }
 
 // = > GS09(BFS.ver) 해보기
+*/
+
+public class GS04{
+    public static final int MAX = 100;
+    public static final int DIR_NUM = 2;
+
+    public static int n,m;
+    public static int[][] graph = new int[MAX][MAX]; // 뱀의 정보를 담는 2차원 배열
+    public static boolean[][] visited = new boolean[MAX][MAX]; // 방문 기록을 위한 2차원 배열
+
+    public static int[] dx = {1,0};
+    public static int[] dy = {0,1};
+
+    public static boolean checkRange(int x, int y){
+        return x >= 0 && x < n && y >= 0 && y < m;
+    }
+
+    public static boolean canGo(int x, int y){
+
+        return checkRange(x,y) && graph[x][y] == 1
+                && !visited[x][y];
+    }
+
+    public static void backtracking(int x, int y){
+
+        for (int i = 0; i < DIR_NUM ; i++) {
+            int nextX = x + dx[i];
+            int nextY = y + dy[i];
+
+            if(canGo(nextX,nextY)){
+                visited[nextX][nextY] = true;
+                backtracking(nextX,nextY);
+            }
+        }
+    }
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+
+        for (int i = 0; i < n ; i++) {
+            for (int j = 0; j < m ; j++) {
+                graph[i][j] = Integer.parseInt(sc.next());
+            }
+        }
+        visited[0][0] = true;
+        backtracking(0,0);
+        System.out.println(visited[n - 1][m - 1]? 1 : 0);
+
+    }
+}
