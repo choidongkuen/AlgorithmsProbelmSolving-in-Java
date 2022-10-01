@@ -1,12 +1,11 @@
 package GraphSearch_그래프탐색;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class GS14 {
+public class GS14다시 {
 
     public static final int MAX_N = 100; // n의 최대값
     public static final int DIR_NUM = 4; // 상하좌우
