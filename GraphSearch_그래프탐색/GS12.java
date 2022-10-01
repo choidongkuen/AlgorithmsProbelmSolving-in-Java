@@ -44,7 +44,7 @@
 package GraphSearch_그래프탐색;
 
 import java.util.*;
-
+/*
 public class GS12 {
     public static final int MAX = 100; // 격자의 최대 크기
     public static int[][] arr = new int[MAX][MAX]; // 주어지는 정보를 원소로 갖는 격자
@@ -122,5 +122,159 @@ public class GS12 {
         }
 
         System.out.println((curX + 1) +" "+ (curY + 1)); // 결과 출력
+    }
+}
+*/
+/*
+public class GS12{
+    public static final int MAX = 100;
+    public static final int DIR_NUM = 4;
+
+    public static int n,k;
+    public static int[][] arr = new int[MAX][MAX];
+    public static boolean[][] visited;
+    public static int[] dx = {0,0,-1,1};
+    public static int[] dy = {1,-1,0,0};
+
+    public static int x,y; // 특정 순간의 위치
+    public static int val;
+    public static boolean checkRange(int x, int y){
+        return x >= 0 && x < n && y >= 0 && y < n;
+    }
+
+    public static boolean canGo(int x, int y){
+        return checkRange(x,y) && !visited[x][y] && arr[x][y] < val;
+    }
+    public static void backtracking(int x, int y){
+
+        for (int d = 0; d < DIR_NUM ; d++) {
+            int nextX = x + dx[d];
+            int nextY = y + dy[d];
+
+            if(canGo(nextX,nextY)){
+                visited[nextX][nextY] = true;
+                backtracking(nextX,nextY);
+            }
+        }
+    }
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        k = sc.nextInt();
+
+        for (int i = 0; i < n ; i++) {
+            for (int j = 0; j < n ; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+
+        x = sc.nextInt() - 1;
+        y = sc.nextInt() - 1; // 초기 위치
+
+        while(k -- > 0){
+            visited = new boolean[n][n];
+            val = arr[x][y];
+            backtracking(x,y);
+
+            int maxVal = 0;
+            for (int i = 0; i < n ; i++) {
+                for (int j = 0; j < n ; j++) {
+                    if(visited[i][j]){
+                        if(arr[i][j] > maxVal){
+                            x = i;
+                            y = j;
+                            maxVal = arr[i][j];
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println((x + 1)+ " " +(y + 1));
+    }
+}
+*/
+public class GS12{
+    public static final int MAX = 100;
+    public static final int DIR_NUM = 4;
+
+    public static int n,k;
+    public static int[][] arr = new int[MAX][MAX];
+    public static boolean[][] visited;
+    public static Queue<Point> q = new LinkedList<>();
+    public static int[] dx = {1,-1,0,0};
+    public static int[] dy = {0,0,-1,1};
+    public static int x,y,val;
+
+    static class Point{
+        int x,y;
+        Point(int x, int y){
+            this.x = x;
+            this.y = y;
+        }
+    }
+
+    public static boolean checkRange(int x, int y){
+        return x >= 0 && x < n && y >= 0 && y < n;
+    }
+    public static boolean canGo(int x, int y){
+        return checkRange(x,y) && !visited[x][y] && arr[x][y] < val;
+    }
+    public static void bfs(){
+
+        while(!q.isEmpty()){
+            Point p = q.poll();
+
+            int curX = p.x;
+            int curY = p.y;
+
+            for (int i = 0; i < DIR_NUM ; i++) {
+
+                int nextX = curX + dx[i];
+                int nextY = curY + dy[i];
+
+                if(canGo(nextX,nextY)){
+                    visited[nextX][nextY] = true;
+                    q.add(new Point(nextX,nextY));
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        k = sc.nextInt();
+
+        for (int i = 0; i < n ; i++) {
+            for (int j = 0; j < n ; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+
+        x = sc.nextInt() - 1;
+        y = sc.nextInt() - 1;
+
+        for (int i = 0; i < k; i++) { // k번 반복
+            visited = new boolean[n][n];
+            q.add(new Point(x,y));
+            val = arr[x][y];
+
+            bfs();
+            int maxVal = 0;
+
+            for (int j = 0; j < n ; j++) {
+                for (int l = 0; l < n ; l++) {
+                    if(visited[j][l]) {
+                        if (arr[j][l] > maxVal) {
+                            maxVal = arr[j][l];
+                            x = j;
+                            y = l;
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println((x + 1)+ " " +(y + 1));
     }
 }

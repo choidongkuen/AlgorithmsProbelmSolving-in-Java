@@ -37,7 +37,7 @@
 
 package GraphSearch_그래프탐색;
 import java.util.*;
-
+/*
 class Coordinate{
     int x,y;
 
@@ -113,5 +113,56 @@ public class GS10 {
             }
         }
         System.out.println(ans); // 결과 출력
+    }
+}
+*/
+public class GS10{
+    public static final int MAX_N = 100;
+    public static final int DIR_NUM = 4;
+
+    public static int n,k;
+    public static int[][] arr = new int[MAX_N][MAX_N];
+    public static boolean[][] visited = new boolean[MAX_N][MAX_N];
+
+    public static int[] dx = {1,-1,0,0};
+    public static int[] dy = {0,0,-1,1};
+    public static int ans;
+
+    public static boolean checkRange(int x, int y){
+        return x >= 0 && x < n && y >= 0 && y < n;
+    }
+
+    public static boolean canGo(int x, int y){
+        return checkRange(x,y) && !visited[x][y] && arr[x][y] != 1;
+    }
+    public static void backtracking(int x, int y){
+        ans ++;
+        visited[x][y] = true;
+        for (int d = 0; d < DIR_NUM; d++) {
+            int nextX = x + dx[d];
+            int nextY = y + dy[d];
+            if(canGo(nextX,nextY)){
+                backtracking(nextX,nextY);
+            }
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        k = sc.nextInt();
+
+        for (int i = 0; i < n ; i++) {
+            for (int j = 0; j < n ; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+
+        while(k -- > 0){
+            int x = sc.nextInt() - 1;
+            int y = sc.nextInt() - 1;
+            if(!visited[x][y])
+                backtracking(x,y);
+        }
+        System.out.println(ans);
     }
 }
