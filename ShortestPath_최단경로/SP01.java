@@ -34,13 +34,13 @@
 // 출력 예시02 :
 // 8
 
-package GraphSearch_그래프탐색;
+package ShortestPath_최단경로;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class GS16 {
+public class SP01 {
 
     public static final int MAX = 100;
     public static final int DIR_NUM = 4;
