@@ -34,7 +34,7 @@
 package GraphSearch_그래프탐색;
 
 import java.util.*;
-
+/*
 public class GS06 {
     public static final int MAX = 50; // 최대 격자 크기
     public static final int DIR_NUM = 4; // 남 - 동 - 북 - 서
@@ -118,5 +118,77 @@ public class GS06 {
         System.out.println(minK+" "+maxCnt); // 안전 역역의 수가 최대가 될때의 k와 안전 영역의 수 출력
     }
 }
+*/
+public class GS06{
 
+    public static final int MAX_N = 50;
+    public static final int MAX_M = 50;
+    public static final int MAX_H = 100;
+    public static final int DIR_NUM = 4;
+
+    public static int[][] vileges = new int[MAX_N][MAX_M]; // 각 집의 높이 정보
+    public static boolean[][] visited;
+    public static int safeArea = -1; // 최대 안전영역의 수
+    public static int height = 0;// 최대 안전영역일때 높이
+    public static int n,m;
+
+    public static int[] dx = {1,-1,0,0};
+    public static int[] dy = {0,0,-1,1};
+
+    public static boolean checkRange(int x, int y){
+        return x >= 0 && x < n && y >= 0 && y < m;
+    }
+    public static boolean canGo(int x, int y, int h){
+        return checkRange(x,y) && !visited[x][y] && vileges[x][y] > h;
+    }
+
+    public static void backtracking(int x, int y, int h){
+        visited[x][y] = true;
+
+        for (int d = 0; d < DIR_NUM ; d++) {
+            int nextX = x + dx[d];
+            int nextY = y + dy[d];
+
+            if(canGo(nextX,nextY,h)){
+                backtracking(nextX,nextY,h);
+            }
+        }
+    }
+
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+
+        for (int i = 0; i < n ; i++) {
+            for (int j = 0; j < m ; j++) {
+                vileges[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int k = 1; k <= MAX_H ; k++) {
+
+            int cnt = 0; // 높이가 k 일때 안전영역의 수
+            visited = new boolean[n][m]; // 높이마다 방문 배열 초기화
+
+            for (int i = 0; i < n ; i++) {
+                for (int j = 0; j < m ; j++) {
+
+                    if(vileges[i][j] > k && !visited[i][j]){
+                        cnt++; // 안전영역의 수 증가
+                        backtracking(i,j,k);
+                    }
+                }
+            }
+
+            if(safeArea < cnt){ // 이전의 안전영역의 수보다 많다면
+                safeArea = cnt; // 안전영역의 수 업데이트
+                height = k; // 높이 업데이트
+            }
+        }
+        System.out.println(height +" " + safeArea);
+    }
+}
 

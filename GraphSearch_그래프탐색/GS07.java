@@ -31,6 +31,7 @@
 
 package GraphSearch_그래프탐색;
 
+/*
 import java.util.*;
 public class GS07 {
 
@@ -100,5 +101,68 @@ public class GS07 {
                 }
 
         System.out.println(blockCnt + " " + maxSize); // 터지는 블록의 수와 최대 블록의 크기 출력
+    }
+}
+*/
+
+import java.util.Scanner;
+
+public class GS07{
+    public static final int MAX_N = 100; // 격자의 최대 크기
+    public static final int MAX_NUM = 100; // 주어지는 숫자의 최대값
+    public static final int DIR_NUM = 4;
+
+    public static int[][] arr = new int[MAX_N][MAX_N];
+    public static boolean[][] visited = new boolean[MAX_N][MAX_N];
+    public static int[] dx = {1,-1,0,0};
+    public static int[] dy = {0,0,1,-1};
+
+    public static int n,cnt;
+    public static int blockSize = 0; // 같은 수로 이어져 있는 블록의 최대 크기
+    public static int blockCnt = 0; // 터지는 블록의 수
+    public static boolean checkRange(int x, int y){
+        return x >= 0 && x < n && y >= 0 && y < n;
+    }
+
+    public static boolean canGo(int x, int y, int num){
+        return checkRange(x,y) && !visited[x][y] && arr[x][y] == num;
+    }
+
+    public static void backtracking(int x, int y, int num){
+        visited[x][y] = true;
+        cnt ++;
+        for (int d = 0; d < DIR_NUM ; d++) {
+            int nextX = x + dx[d];
+            int nextY = y + dy[d];
+
+            if(canGo(nextX,nextY,num)){
+                backtracking(nextX,nextY,num);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+
+        for (int i = 0; i < n ; i++) {
+            for (int j = 0; j < n ; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < n ; i++) {
+            for (int j = 0; j < n ; j++) {
+                if(!visited[i][j]){
+                    cnt = 0;
+                    backtracking(i,j,arr[i][j]);
+                    if(cnt >= 4){
+                        blockCnt++; // 터지게 되는 블럭의 수 증가
+                    }
+                    blockSize = Math.max(blockSize,cnt); // 블록 크기 업데이트
+                }
+            }
+        }
+        System.out.println(blockCnt + " " + blockSize);
     }
 }

@@ -26,7 +26,7 @@
 
 package GraphSearch_그래프탐색;
 import java.util.*;
-
+/*
 public class GS05 {
     public static final int MAX_N = 25; // 최대 격자 크기
     public static final int DIR_NUM = 4; // 4방향
@@ -93,5 +93,71 @@ public class GS05 {
         System.out.println(people.size());
         for(int i = 0; i < people.size(); i++)
             System.out.println(people.get(i)); // 각 마을 주민 수 출력
+    }
+}*/
+
+// 다시 풀기
+public class GS05{
+
+    public static final int MAX_N = 25; // 격자의 최대 크기
+    public static final int DIR_NUM = 4; // 상하좌우
+
+    public static int n;
+    public static boolean[][] visited = new boolean[MAX_N][MAX_N];
+    public static int[][] vilege = new int[MAX_N][MAX_N];
+    public static ArrayList<Integer> people = new ArrayList<>();
+    public static int vilegeCnt = 0,peopleCnt;
+
+    public static int[] dx = {0,0,1,-1};
+    public static int[] dy = {1,-1,0,0};
+    public static boolean checkRange(int x, int y){
+        return x >= 0 && x < n && y >= 0 && y < n;
+    }
+
+    public static boolean canGo(int x, int y){
+        return checkRange(x,y) && vilege[x][y] == 1 && !visited[x][y];
+    }
+
+    public static void backtracking(int x, int y){
+        peopleCnt ++;
+        visited[x][y] = true;
+
+        for(int i = 0; i < DIR_NUM; i ++){
+            int nextX = x + dx[i];
+            int nextY = y + dy[i];
+
+            if(canGo(nextX,nextY)){
+                backtracking(nextX,nextY);
+            }
+        }
+    }
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+
+        for (int i = 0; i < n ; i++) {
+            for (int j = 0; j < n ; j++) {
+                vilege[i][j] = sc.nextInt(); // 0 : 벽, 1 : 사람
+            }
+        }
+
+        for (int i = 0; i < n ; i++) {
+            for (int j = 0; j < n ; j++) {
+                if(vilege[i][j] == 1 && !visited[i][j]){
+                    vilegeCnt ++;
+                    peopleCnt = 0;
+                    backtracking(i,j);
+                    people.add(peopleCnt);
+                }
+            }
+        }
+
+        System.out.println(vilegeCnt);
+        Collections.sort(people);
+        for (int i = 0; i < people.size() ; i++) {
+            System.out.println(people.get(i));
+        }
     }
 }
