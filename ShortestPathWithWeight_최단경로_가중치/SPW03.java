@@ -38,7 +38,7 @@ public class SPW03 {
     public static final int MAX_N = 200;
 
     public static int n,m,p,q;
-    public static long minCost, cnt;
+    public static long minCost, cnt; // minCost 값은 매우 큼으로 long으로 선언하자!! (중요)
     // 1 ~ p 점은 빨간 점
     // q는 질의 개수
     public static int[][] dist = new int[MAX_N + 1][MAX_N + 1];
@@ -90,7 +90,8 @@ public class SPW03 {
 
             for (int point = 1; point <=  p; point++) {
                 distance = Math.min(distance,dist[start][point] + dist[point][end]);
-            }
+            } // 빨간점이 여러개더라도 그 중 최단 비용 경로를 찾아야 함
+
             if(distance  >= (int)1e9)
                 continue; // 중간에 빨간점 존재 x
             cnt ++;
