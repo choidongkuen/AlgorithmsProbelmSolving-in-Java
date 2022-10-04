@@ -48,7 +48,7 @@ public class SPW06 {
 
             int from = sc.nextInt();
             int to = sc.nextInt();
-            int cost = sc.nextInt();ㄴㅁ
+            int cost = sc.nextInt();
 
             dist[from][to] = cost;
         }
