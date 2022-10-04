@@ -38,9 +38,7 @@ public class SPW03 {
     public static final int MAX_N = 200;
 
     public static int n,m,p,q;
-    public s
-    tatic long minCost
-            , cnt;
+    public static long minCost, cnt;
     // 1 ~ p 점은 빨간 점
     // q는 질의 개수
     public static int[][] dist = new int[MAX_N + 1][MAX_N + 1];
