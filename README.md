@@ -43,3 +43,5 @@
 
 -[Shortest Path] : **최단 경로**<br>
 
+-[Minumum Spanning Tree] : **최소 신장 트리**<br>
+
