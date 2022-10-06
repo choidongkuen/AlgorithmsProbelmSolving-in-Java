@@ -15,7 +15,7 @@
 
 // 점화식 : dp[i] = dp[i - 2] * 3 + dp[i - 1] * 2
 
-package DynamicProgramming_동적계획법;
+package DynamicProgramming01_동적계획법01;
 
 import java.util.Scanner;
 

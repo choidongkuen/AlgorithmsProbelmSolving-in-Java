@@ -37,7 +37,7 @@
 // 어떤 점에서 시작해야할지 막막...-> 다 해볼까? no 완전 탐색
 // 일단 인스턴스화 헤서 각 좌표에 대한 원소를 기준으로 정렬해볼까?
 
-package DynamicProgramming_동적계획법;
+package DynamicProgramming01_동적계획법01;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;

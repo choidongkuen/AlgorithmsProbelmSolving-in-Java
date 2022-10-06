@@ -5,7 +5,7 @@
 // 단, 항상 2계단 혹은 3계단 단위로만 올라갈 수 있기에 n층까지 정확히 1계단이 남은 상황에서는 n층으로 올라갈 수 있는 방법이 전혀 없음에 유의합니다.
 // 예로 n = 5일 때는 다음과 같이 2가지 방법이 가능합니다.
 
-package DynamicProgramming_동적계획법;
+package DynamicProgramming01_동적계획법01;
 
 import java.util.*;
 

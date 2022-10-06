@@ -19,7 +19,7 @@
 // 출력 예시 ;
 // 11
 
-package DynamicProgramming_동적계획법;
+package DynamicProgramming01_동적계획법01;
 import java.util.*;
 
 public class Dp01 {

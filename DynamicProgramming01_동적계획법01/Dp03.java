@@ -16,9 +16,7 @@
 // 출력 예시 :
 // 2
 
-package DynamicProgramming_동적계획법;
-import java.util.*;
-
+package DynamicProgramming01_동적계획법01;
 import java.util.*;
 // arr[i][j] 가 dp[i - 1][j] 와 dp[i][j - 1]보다 작다면  상관없이 arr[i][j]로 업데이트
 // arr[i][j] 가 dp[i - 1][j] 와 dp[i][j - 1]보다 크다면 둘 중 최대값으로 업데이트

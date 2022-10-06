@@ -15,7 +15,7 @@
 
 // dp[i] 는 합이 i 일때, 만들 수 있는 모든 숫자 암호 경우의 수
 
-package DynamicProgramming_동적계획법;
+package DynamicProgramming01_동적계획법01;
 import java.util.Scanner;
 
 public class Dp05 {

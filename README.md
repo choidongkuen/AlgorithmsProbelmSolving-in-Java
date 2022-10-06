@@ -29,6 +29,8 @@
 
 -[Exhaustive Search 3] : **완전 탐색 3**<br>
 
+-[Dynamic Programming 01] : **동적 계획법 1** <br>
+
 <br>
 
 > Advanced Level
@@ -36,6 +38,8 @@
 -[BackTracking] : **백트랙킹**<br>
 
 -[Two-Pointer] : **투포인터**<br>
+
+-[Dynamic Programming 01] : **동적 계획법 1** <br>
 
 -[DFS] : **깊이 우선 탐색**<br>
 

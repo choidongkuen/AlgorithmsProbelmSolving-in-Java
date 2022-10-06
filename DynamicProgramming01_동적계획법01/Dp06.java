@@ -11,7 +11,7 @@
 // k가 주어질 때, 도둑이 훔칠 수 있는 보석의 최대 가격은 ?
 // dp[i][j] = i 번째까지의 보석을 고려하고, j 무게를 맞출때, 얻을 수 있는 보석의 최대 가격
 
-package DynamicProgramming_동적계획법;
+package DynamicProgramming01_동적계획법01;
 
 import java.util.Scanner;
 

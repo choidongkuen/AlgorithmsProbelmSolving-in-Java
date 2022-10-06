@@ -20,7 +20,7 @@
 // dp[i] 는 2 x i 칸일 때 조건에 맞게 채우는 방법의 수
 
 
-package DynamicProgramming_동적계획법;
+package DynamicProgramming01_동적계획법01;
 
 import java.util.Scanner;
 

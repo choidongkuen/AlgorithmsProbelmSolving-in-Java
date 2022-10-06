@@ -3,7 +3,7 @@
 // 문제 설명 : 가치가 1, 4, 5, 9인 4개의 동전이 주어졌을 때, 금액 21을 거슬러 주기 위해 필요한 최소 동전의 수를 구해보려고 합니다.
 
 // 입력 형식 따로 없음.
-package DynamicProgramming_동적계획법;
+package DynamicProgramming01_동적계획법01;
 public class Dp04{
     public static final int MAX = 100; // 최대 배열 원소 수
     public static final int total = 21; // 만들고자 하는 총합
