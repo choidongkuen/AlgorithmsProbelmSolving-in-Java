@@ -17,13 +17,15 @@ public class DP07 {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt(); // 계단의 높이
 
-        dp[0] = dp[1] = dp[2] = dp[3] = 1;
-
+        dp[0] = 1;
+        dp[1] = 0;
+        dp[2] = 1;
+        dp[3] = 1;
         for (int i = 4; i <= n ; i++) {
             dp[i] = (dp[i - 2] + dp[i - 3]) % 10007;
         }
 
         System.out.println(dp[n]);
-        System.out.println(Arrays.toString(dp));
+//        System.out.println(Arrays.toString(dp));
     }
 }
