@@ -10,7 +10,7 @@
 package DynamicProgramming01_동적계획법01;
 
 import java.util.Scanner;
-
+/*
 public class DP14 {
 
     public static final int MAX_N = 100;
@@ -27,10 +27,15 @@ public class DP14 {
             jumps[i] = sc.nextInt();
         }
 
+
         for (int i = 0; i < n ; i++) {
             dp[i] = Integer.MIN_VALUE;
         }
-        dp[0] = 0;
+        // 예를 들어 특정 i 인덱스 기준으로
+        // i 이전에 존재하는 조건을 만족하는 j 가 있었다고 할 때,
+        // j까지 도달하지 못하는 상황인데 만약 조건을 만족한다 해서, dp[j] + 1
+        // 을 하게 되면 잘못된 값 도출 -> Integer.MIN_VALUE 로 설정해야 함.
+        dp[0] = 0; // 첫 위치
 
         for (int i = 1; i < n ; i++) {
             for (int j = 0; j < i ; j++) {
@@ -49,6 +54,6 @@ public class DP14 {
         }
 
         System.out.println(ans);
-
     }
 }
+*/
