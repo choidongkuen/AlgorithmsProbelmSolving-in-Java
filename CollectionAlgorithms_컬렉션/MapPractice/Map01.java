@@ -14,7 +14,7 @@
 // 나중에 diff가 arr[i]로 나올 수 있음으로, arr[i]의 횟수 기록
 
 
-package CollectionAlgorithms_컬렉션.Map;
+package CollectionAlgorithms_컬렉션.MapPractice;
 
 import java.util.HashMap;
 import java.util.Scanner;

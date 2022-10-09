@@ -1,6 +1,5 @@
-package CollectionAlgorithms_컬렉션.Map;
+package CollectionAlgorithms_컬렉션.MapPractice;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Map03 {

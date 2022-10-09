@@ -10,7 +10,7 @@
 // 1 ≤ n ≤ 1,000
 
 
-package CollectionAlgorithms_컬렉션.Map;
+package CollectionAlgorithms_컬렉션.MapPractice;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -38,8 +38,9 @@ public class Map02 {
 
         for (int i = 0; i < n; i++) {
 
-            if (!hashMap.containsKey(arr[i]))
+            if (!hashMap.containsKey(arr[i])) {
                 hashMap.put(arr[i], -1);
+            }
 
             else // Map에 존재한다면
                 hashMap.put(arr[i], hashMap.get(arr[i]) - 1);
