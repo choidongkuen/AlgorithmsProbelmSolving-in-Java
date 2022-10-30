@@ -42,6 +42,7 @@
 // 넓게 생각하자. start1과 start2가 동시에 어떤 지점에서 같이 택시를 탄다고 생각하면 된다!
 // 가장 헷갈렸던 건 택시를 안타는 경우는 어떻게 반영해야 할까 였는데 결국 k의 범위가 1부터 n까지임으로,
 // k가 start1이나 start2라면 반영되는 꼴!
+
 // 만약 dist[start1][e] dist[start2][e]만 1e9가 아닐 때는?
 // k가 e랑 동일 할 때 반영된다.
 
@@ -77,6 +78,7 @@ public class SPW04 {
             for (int i = 1; i <= n ; i++) {
                 for (int j = 1; j <= n ; j++) {
                     dist[i][j] = Math.min(dist[i][j], dist[i][k] + dist[k][j]);
+                    
                 }
             }
         }
@@ -93,6 +95,7 @@ public class SPW04 {
         floydWarShall(); // dist 배열 완성
 
         int minCost = Integer.MAX_VALUE;
+
         for (int k = 1; k <= n ; k++) {
             minCost = Math.min(minCost, dist[start1][k] + dist[start2][k] + dist[k][e]);
         }
