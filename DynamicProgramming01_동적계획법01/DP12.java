@@ -39,10 +39,9 @@
 
 package DynamicProgramming01_동적계획법01;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class DP12_해결필요 {
+public class DP12 {
 
     public static final int MAX = 100;
     public static final int INT_MAX = Integer.MAX_VALUE;
