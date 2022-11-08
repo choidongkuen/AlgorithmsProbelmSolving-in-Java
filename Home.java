@@ -1,24 +1,33 @@
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
+import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-// StringBuilder, StringBuffer 메소드
-// appendCodePoint() => character 추가
-// capacity() => 버퍼의 용량
-// charAt() => 특정 인덱스의 문자 반환
-// codePointAt(int index) => index 바로 앞에 있는 문자의 코트 포인트 반환
-// delete
-public class Home {
+public class Home{
 
     public static void main(String[] args) {
 
-        System.out.println((double)1/ 5);
+        int[] arr = {1,2,3,4};
+
+        // case 01 : primitive 배열을 reference 배열로 변환
+        Integer[] integerArr = Arrays.stream(arr).boxed().toArray(Integer[] :: new);
+
+        // case 02 : primitive 배열을 리스트로 변경
+        List<Integer> list1 = Arrays.stream(arr).boxed().collect(Collectors.toList());
+
+        // case 03 : reference 배열을 리스트로 변경
+        List<Integer> list2 = Arrays.stream(integerArr).collect(Collectors.toList());
+        // or
+        List<Integer> list3 = new ArrayList<>(Arrays.asList(integerArr));
+
+        // case 04 : 리스트를 int[] 배열로 변경
+        int[] toArr1 = list1.stream().mapToInt(Integer::valueOf).toArray();
+
+        // case 05 : 리스트르르 Integer[] 배열로 변경
+        Integer[] toArr2 = list2.stream().toArray(Integer[] :: new);
+
+
     }
+
 
 }
