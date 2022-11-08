@@ -33,7 +33,8 @@ public class BT10_해결필요 {
 
     public static int[] jumps = new int[MAX_N]; // n개의 숫자를 저장할 1차원 배열
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
+
 
 
     }

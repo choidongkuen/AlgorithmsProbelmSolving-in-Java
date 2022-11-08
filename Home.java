@@ -18,24 +18,7 @@ public class Home {
 
     public static void main(String[] args) {
 
-        Map<Integer,Integer> hashMap = new HashMap<>();
-
-        hashMap.put(2,3);
-        hashMap.put(-1,-2);
-        hashMap.put(-100,12);
-        hashMap.put(100,123);
-        hashMap.put(234,2313);
-        hashMap.put(-15,2031);
-
-        Iterator< Map.Entry<Integer,Integer>> itr = hashMap.entrySet().iterator();
-//        System.out.println(hashMap.keySet().size());
-
-        while(itr.hasNext()){
-
-            Integer key = itr.next().getKey();
-            System.out.println(key);
-
-        }
+        System.out.println((double)1/ 5);
     }
 
 }
