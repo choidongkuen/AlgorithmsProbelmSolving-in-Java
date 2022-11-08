@@ -1,3 +1,19 @@
+// HashMap, TreeMap
+
+// Map 관련 메소드
+// 1. put(k,v)
+// 2. get(k)
+// 3. remove(k)
+// 4. replace(k,v)
+// 5. getOrDefault(k,v)
+// 6. clear()
+// 7. isEmpty()
+// 8. size()
+// 9. containsKey()
+// 10. containsValues()
+// 11. Set<K> keySet()
+// 12. Collection<V> values()
+
 // 문제 : 두 수의 합
 // 문제 설명 : n개의 정수가 입력으로 주어지고, 이 중 서로 다른 위치에 있는 두개의 수를 뽑아 더했을 때
 // k가 되는 가짓수를 구하는 프로그램을 작성하세요.
