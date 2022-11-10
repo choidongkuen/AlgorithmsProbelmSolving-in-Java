@@ -82,6 +82,7 @@ public class Pq01 {
                 median = arrList.get(1);
                 minPq.add(arrList.get(2));
 
+
                 System.out.print(median + " ");
             }
         }
@@ -94,7 +95,6 @@ public class Pq01 {
         while(t -- > 0){
             // 각 테스트 마다의 수열의 원소 개수
             int m = sc.nextInt();
-
             findMedian(m);
             System.out.println();
         }
