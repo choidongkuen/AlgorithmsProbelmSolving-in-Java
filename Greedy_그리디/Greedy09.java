@@ -27,16 +27,15 @@
 
 package Greedy_그리디;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 
 public class Greedy09 {
 
     public static final int MAX_N = 50000;
-    public static ArrayList<Integer> A = new ArrayList<>();
-    public static ArrayList<Integer> B = new ArrayList<>();
+    // TreeSet 의 삽입,삭제,탐색 => O(logN)
+    public static TreeSet<Integer> A = new TreeSet<>();
+    public static TreeSet<Integer> B = new TreeSet<>();
+
 
     public static int n;
 
@@ -45,37 +44,33 @@ public class Greedy09 {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
 
-        for (int i = 0; i < n ; i++) {
+        for(int i = 0; i < n; i ++){
             B.add(sc.nextInt());
         }
 
-        for (int i = 1; i <= 2*n ; i++) {
-            if(B.contains(i)){
+        for(int i = 1; i <= 2*n; i ++){
+            if(B.contains(i))
                 continue;
-            }
             A.add(i);
         }
-
-        // 오름차순으로 정렬
-        Collections.sort(A);
-        Collections.sort(B);
-
-        // 각자 작은 값의 원소부터 보면서
-        // 만약 A 배열리스트의 원소가 B의 배열리스트의 원소보다 크다면
-        // cnt ++ ;
-        // bIdx++;
 
         int bIdx = 0;
         int cnt = 0;
 
-        for (int aIdx = 0; aIdx < n ; aIdx++) {
+        for(int i = 0; i < n; i ++){
 
-            if(bIdx < n && A.get(aIdx) > B.get(bIdx)){
+            if(A.first() > B.first()){
                 cnt ++;
-                bIdx ++;
+                B.remove(B.first());
             }
+            A.remove(A.first());
         }
 
         System.out.print(cnt);
     }
 }
+
+// 각자 작은 값의 원소부터 보면서
+// 만약 A 배열리스트의 원소가 B의 배열리스트의 원소보다 크다면
+// cnt ++ ;
+// bIdx++;

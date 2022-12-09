@@ -42,6 +42,13 @@
 // 3 2
 // 3 3
 
+
+// 아이디어 :
+// k개의 원소중 n개의 원소를 뽑는 것이고
+// 1 ~ n 자리에 1 ~ K 모든 수가 오는 경우를 고려
+// curNum == N+1이라는 것은 자릿수를 초과한 경우
+
+
 package BackTracking_백트랙킹;
 
 import java.util.ArrayList;
@@ -55,15 +62,16 @@ public class BT01 {
             System.out.print(element+" ");
         System.out.println();
     } // 배열리스트 원소 출력해주는 메소드
-    public static void choose(int loc){ // 해당 location 자리에 1 ~ k의 숫자 배치
-        if(loc == n + 1){
+    public static void choose(int curNum){
+        if(curNum == n + 1){
             printArr();
             return;
         }
 
+        // n자리 중 해당 loc 자리에 1 ~ k 모든 수를 고려해야 한다.<중요>
         for (int i = 1; i <= k ; i++) {
             result.add(i);
-            choose(loc + 1);
+            choose(curNum + 1);
             result.remove(result.size() - 1);
         }
     }

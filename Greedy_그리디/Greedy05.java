@@ -58,6 +58,7 @@ public class Greedy05 {
     public static PriorityQueue<Meeting> pq = new PriorityQueue<>(new Comparator<Meeting>() {
         @Override
         public int compare(Meeting o1, Meeting o2) {
+
             // 끝나는 시간이 같은 경우
             // 시작 시간이 큰 거 부터
             // ex (2,3) , (3,3)
